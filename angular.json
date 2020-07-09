@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "al-arafah-ekyc": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/al-arafah-ekyc",
+      "sourceRoot": "apps/al-arafah-ekyc/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/al-arafah-ekyc",
+            "index": "apps/al-arafah-ekyc/src/index.html",
+            "main": "apps/al-arafah-ekyc/src/main.ts",
+            "polyfills": "apps/al-arafah-ekyc/src/polyfills.ts",
+            "tsConfig": "apps/al-arafah-ekyc/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/al-arafah-ekyc/src/favicon.ico",
+              "apps/al-arafah-ekyc/src/assets"
+            ],
+            "styles": ["apps/al-arafah-ekyc/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/al-arafah-ekyc/src/environments/environment.ts",
+                  "with": "apps/al-arafah-ekyc/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "al-arafah-ekyc:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "al-arafah-ekyc:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "al-arafah-ekyc:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/al-arafah-ekyc/tsconfig.app.json",
+              "apps/al-arafah-ekyc/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/al-arafah-ekyc/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/al-arafah-ekyc/jest.config.js",
+            "tsConfig": "apps/al-arafah-ekyc/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/al-arafah-ekyc/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "al-arafah-ekyc-e2e": {
+      "root": "apps/al-arafah-ekyc-e2e",
+      "sourceRoot": "apps/al-arafah-ekyc-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/al-arafah-ekyc-e2e/cypress.json",
+            "tsConfig": "apps/al-arafah-ekyc-e2e/tsconfig.e2e.json",
+            "devServerTarget": "al-arafah-ekyc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "al-arafah-ekyc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/al-arafah-ekyc-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/al-arafah-ekyc-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "al-arafah-ekyc"
+}
