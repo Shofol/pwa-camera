@@ -1,0 +1,10 @@
+{
+  "extends": "../../../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "mislNxDemo", "camelCase"],
+    "component-selector": [true, "element", "misl-nx-demo", "kebab-case"]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

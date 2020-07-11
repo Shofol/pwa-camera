@@ -15,7 +15,24 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@misl-nx-demo/signup": ["libs/signup/src/index.ts"],
+      "@misl-nx-demo/libs/al-arafah-kyc/feature-signup": [
+        "libs/libs/al-arafah-kyc/feature-signup/src/index.ts"
+      ],
+      "@misl-nx-demo/al-arafah-kyc/feature-signup": [
+        "libs/al-arafah-kyc/feature-signup/src/index.ts"
+      ],
+      "@misl-nx-demo/al-arafah-ekyc/feature-signup": [
+        "libs/al-arafah-ekyc/feature-signup/src/index.ts"
+      ],
+      "@misl-nx-demo/city-bank-ekyc/feature-signup": [
+        "libs/city-bank-ekyc/feature-signup/src/index.ts"
+      ],
+      "@misl-nx-demo/shared/ui/signup-fields": [
+        "libs/shared/ui/signup-fields/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -123,6 +123,336 @@
           }
         }
       }
+    },
+    "signup": {
+      "projectType": "library",
+      "root": "libs/signup",
+      "sourceRoot": "libs/signup/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/signup/tsconfig.lib.json",
+              "libs/signup/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/signup/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/signup/jest.config.js",
+            "tsConfig": "libs/signup/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/signup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "city-bank-ekyc": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/city-bank-ekyc",
+      "sourceRoot": "apps/city-bank-ekyc/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/city-bank-ekyc",
+            "index": "apps/city-bank-ekyc/src/index.html",
+            "main": "apps/city-bank-ekyc/src/main.ts",
+            "polyfills": "apps/city-bank-ekyc/src/polyfills.ts",
+            "tsConfig": "apps/city-bank-ekyc/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/city-bank-ekyc/src/favicon.ico",
+              "apps/city-bank-ekyc/src/assets"
+            ],
+            "styles": ["apps/city-bank-ekyc/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/city-bank-ekyc/src/environments/environment.ts",
+                  "with": "apps/city-bank-ekyc/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "city-bank-ekyc:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "city-bank-ekyc:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "city-bank-ekyc:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/city-bank-ekyc/tsconfig.app.json",
+              "apps/city-bank-ekyc/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/city-bank-ekyc/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/city-bank-ekyc/jest.config.js",
+            "tsConfig": "apps/city-bank-ekyc/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/city-bank-ekyc/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "city-bank-ekyc-e2e": {
+      "root": "apps/city-bank-ekyc-e2e",
+      "sourceRoot": "apps/city-bank-ekyc-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/city-bank-ekyc-e2e/cypress.json",
+            "tsConfig": "apps/city-bank-ekyc-e2e/tsconfig.e2e.json",
+            "devServerTarget": "city-bank-ekyc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "city-bank-ekyc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/city-bank-ekyc-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/city-bank-ekyc-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "libs-al-arafah-kyc-feature-signup": {
+      "projectType": "library",
+      "root": "libs/libs/al-arafah-kyc/feature-signup",
+      "sourceRoot": "libs/libs/al-arafah-kyc/feature-signup/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/libs/al-arafah-kyc/feature-signup/tsconfig.lib.json",
+              "libs/libs/al-arafah-kyc/feature-signup/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/libs/al-arafah-kyc/feature-signup/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/libs/al-arafah-kyc/feature-signup/jest.config.js",
+            "tsConfig": "libs/libs/al-arafah-kyc/feature-signup/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/libs/al-arafah-kyc/feature-signup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "al-arafah-kyc-feature-signup": {
+      "projectType": "library",
+      "root": "libs/al-arafah-kyc/feature-signup",
+      "sourceRoot": "libs/al-arafah-kyc/feature-signup/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/al-arafah-kyc/feature-signup/tsconfig.lib.json",
+              "libs/al-arafah-kyc/feature-signup/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/al-arafah-kyc/feature-signup/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/al-arafah-kyc/feature-signup/jest.config.js",
+            "tsConfig": "libs/al-arafah-kyc/feature-signup/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/al-arafah-kyc/feature-signup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "al-arafah-ekyc-feature-signup": {
+      "projectType": "library",
+      "root": "libs/al-arafah-ekyc/feature-signup",
+      "sourceRoot": "libs/al-arafah-ekyc/feature-signup/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/al-arafah-ekyc/feature-signup/tsconfig.lib.json",
+              "libs/al-arafah-ekyc/feature-signup/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/al-arafah-ekyc/feature-signup/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/al-arafah-ekyc/feature-signup/jest.config.js",
+            "tsConfig": "libs/al-arafah-ekyc/feature-signup/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/al-arafah-ekyc/feature-signup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "city-bank-ekyc-feature-signup": {
+      "projectType": "library",
+      "root": "libs/city-bank-ekyc/feature-signup",
+      "sourceRoot": "libs/city-bank-ekyc/feature-signup/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/city-bank-ekyc/feature-signup/tsconfig.lib.json",
+              "libs/city-bank-ekyc/feature-signup/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/city-bank-ekyc/feature-signup/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/city-bank-ekyc/feature-signup/jest.config.js",
+            "tsConfig": "libs/city-bank-ekyc/feature-signup/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/city-bank-ekyc/feature-signup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-ui-signup-fields": {
+      "projectType": "library",
+      "root": "libs/shared/ui/signup-fields",
+      "sourceRoot": "libs/shared/ui/signup-fields/src",
+      "prefix": "misl-nx-demo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui/signup-fields/tsconfig.lib.json",
+              "libs/shared/ui/signup-fields/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/ui/signup-fields/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui/signup-fields/jest.config.js",
+            "tsConfig": "libs/shared/ui/signup-fields/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/ui/signup-fields/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

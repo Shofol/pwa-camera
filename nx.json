@@ -28,6 +28,31 @@
     "al-arafah-ekyc-e2e": {
       "tags": [],
       "implicitDependencies": ["al-arafah-ekyc"]
+    },
+    "signup": {
+      "tags": []
+    },
+    "city-bank-ekyc": {
+      "tags": []
+    },
+    "city-bank-ekyc-e2e": {
+      "tags": [],
+      "implicitDependencies": ["city-bank-ekyc"]
+    },
+    "libs-al-arafah-kyc-feature-signup": {
+      "tags": []
+    },
+    "al-arafah-kyc-feature-signup": {
+      "tags": []
+    },
+    "al-arafah-ekyc-feature-signup": {
+      "tags": []
+    },
+    "city-bank-ekyc-feature-signup": {
+      "tags": []
+    },
+    "shared-ui-signup-fields": {
+      "tags": []
     }
   }
 }
